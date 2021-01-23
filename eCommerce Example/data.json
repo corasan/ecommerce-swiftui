@@ -1,0 +1,11 @@
+{
+	"data": [
+		{
+			"name": "Wool Blend Oversized Coat"
+			"price": "$219.00"
+			"description": "FULL FIT COAT MADE OF WOOL BLEND FABRIC. LAPEL COLLAR AND ADJUSTABLE LONG SLEEVES WITH BUTTONED STRAP.",
+			"sizes": ["XS", "S", "M", "L", "XL"]
+			"image": "oversizedCoat"
+		}
+	]
+}
