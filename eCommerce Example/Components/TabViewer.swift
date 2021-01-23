@@ -17,11 +17,12 @@ class TabViewerType {
 }
 
 struct TabViewer: View {
-	var options: Array<String> = ["Option1", "Option2"]
+	var options: [String]
 	var views: Array<TabViewerType>
 	@State var selected: Int = 0
 	
-	init(selected: Int, views: Array<TabViewerType>) {
+	init(options: [String], selected: Int, views: Array<TabViewerType>) {
+		self.options = options
 		self.views = views
 		self.selected = selected
 	}
@@ -40,22 +41,26 @@ struct TabViewer: View {
 	
 	var body: some View {
 		VStack {
-			HStack {
-				ForEach(Array(options.enumerated()), id: \.offset) { (index, el) in
-					Button(action: { onClick(index) }) {
-						Text(el)
-							.padding(.horizontal, 20)
-							.padding(.vertical, 10)
-							.background(selectedBackground(el))
-							.cornerRadius(50)
-							.foregroundColor(fontColor(el))
-							.font(.system(size: 16, weight: .semibold))
-							.padding(6)
+			ScrollView(.horizontal, showsIndicators: false) {
+				HStack {
+					Spacer()
+					ForEach(Array(self.options.enumerated()), id: \.offset) { (index, el) in
+						Button(action: { onClick(index) }) {
+							Text(el)
+								.padding(.horizontal, 20)
+								.padding(.vertical, 10)
+								.background(selectedBackground(el))
+								.cornerRadius(50)
+								.foregroundColor(fontColor(el))
+								.font(.system(size: 16, weight: .semibold))
+								.padding(6)
+						}
 					}
+					Spacer()
 				}
 			}
 			VStack {
-				views[selected].view
+//				views[selected].view
 			}
 			Spacer()
 		}
@@ -76,12 +81,13 @@ struct ExampleView2: View {
 }
 
 struct TabViewer_Previews: PreviewProvider {
+	static var options = ["Option1", "Option2"]
 	static var arr: [TabViewerType] = []
 	static var example1 = TabViewerType(label: "Example1", view: AnyView(ExampleView1()))
 	static var example2 = TabViewerType(label: "Example2", view: AnyView(ExampleView2()))
 	
 	static var previews: some View {
-		TabViewer(selected: 0, views: [example1, example2])
+		TabViewer(options: options, selected: 0, views: [example1, example2])
 	}
 }
 #endif
