@@ -1,11 +1,45 @@
 {
-	"data": [
-		{
-			"name": "Wool Blend Oversized Coat"
-			"price": "$219.00"
-			"description": "FULL FIT COAT MADE OF WOOL BLEND FABRIC. LAPEL COLLAR AND ADJUSTABLE LONG SLEEVES WITH BUTTONED STRAP.",
-			"sizes": ["XS", "S", "M", "L", "XL"]
-			"image": "oversizedCoat"
-		}
-	]
+	"data": {
+		"categories": ["coats", "dresses", "pants", "jeans"],
+		"coats": [
+			{
+				"name": "Wool Blend Oversized Coat",
+				"price": "$219.00",
+				"description": "FULL FIT COAT MADE OF WOOL BLEND FABRIC. LAPEL COLLAR AND ADJUSTABLE LONG SLEEVES WITH BUTTONED STRAP.",
+				"sizes": ["XS", "S", "M", "L", "XL"],
+				"image": "oversizedCoat",
+				"category": "coats"
+			}
+		],
+		"dresses": [
+			{
+				"name": "Wool Blend Oversized Coat",
+				"price": "$219.00",
+				"description": "FULL FIT COAT MADE OF WOOL BLEND FABRIC. LAPEL COLLAR AND ADJUSTABLE LONG SLEEVES WITH BUTTONED STRAP.",
+				"sizes": ["XS", "S", "M", "L", "XL"],
+				"image": "oversizedCoat",
+				"category": "dresses"
+			}
+		],
+		"pants": [
+			{
+				"name": "Wool Blend Oversized Coat",
+				"price": "$219.00",
+				"description": "FULL FIT COAT MADE OF WOOL BLEND FABRIC. LAPEL COLLAR AND ADJUSTABLE LONG SLEEVES WITH BUTTONED STRAP.",
+				"sizes": ["XS", "S", "M", "L", "XL"],
+				"image": "oversizedCoat",
+				"category": "pants"
+			}
+		],
+		"jeans": [
+			{
+				"name": "Wool Blend Oversized Coat",
+				"price": "$219.00",
+				"description": "FULL FIT COAT MADE OF WOOL BLEND FABRIC. LAPEL COLLAR AND ADJUSTABLE LONG SLEEVES WITH BUTTONED STRAP.",
+				"sizes": ["XS", "S", "M", "L", "XL"],
+				"image": "oversizedCoat",
+				"category": "jeans"
+			}
+		]
+	}
 }
