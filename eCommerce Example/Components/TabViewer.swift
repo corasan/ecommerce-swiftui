@@ -17,22 +17,17 @@ class TabViewerType {
 }
 
 struct TabViewer: View {
-	var options: [String]
-	var views: Array<TabViewerType>
 	@State var selected: Int = 0
-	
-	init(options: [String], selected: Int, views: Array<TabViewerType>) {
-		self.options = options
-		self.views = views
-		self.selected = selected
-	}
+	@EnvironmentObject var storeData: StoreData
 	
 	func fontColor(_ value: String) -> Color {
-		return self.options[self.selected] == value ? Color.black : Color.gray
+		let categories = self.storeData.categories
+		return categories[self.selected] == value ? Color.black : Color.gray
 	}
 	
 	func selectedBackground(_ value: String) -> Color {
-		return self.options[self.selected] == value ? Color("accent") : Color.white
+		let categories = self.storeData.categories
+		return categories[self.selected] == value ? Color("accent") : Color.white
 	}
 	
 	func onClick(_ value: Int) -> Void {
@@ -44,9 +39,9 @@ struct TabViewer: View {
 			ScrollView(.horizontal, showsIndicators: false) {
 				HStack {
 					Spacer()
-					ForEach(Array(self.options.enumerated()), id: \.offset) { (index, el) in
+					ForEach(Array(self.storeData.categories.enumerated()), id: \.offset) { (index, el) in
 						Button(action: { onClick(index) }) {
-							Text(el)
+							Text(el.capitalized)
 								.padding(.horizontal, 20)
 								.padding(.vertical, 10)
 								.background(selectedBackground(el))
@@ -87,7 +82,7 @@ struct TabViewer_Previews: PreviewProvider {
 	static var example2 = TabViewerType(label: "Example2", view: AnyView(ExampleView2()))
 	
 	static var previews: some View {
-		TabViewer(options: options, selected: 0, views: [example1, example2])
+		TabViewer().environmentObject(StoreData())
 	}
 }
 #endif

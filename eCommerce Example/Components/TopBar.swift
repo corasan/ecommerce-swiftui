@@ -19,7 +19,6 @@ struct TopBar: View {
                     .font(.title)
             }
             .padding(.horizontal, 24)
-            Spacer()
         }
     }
 }
