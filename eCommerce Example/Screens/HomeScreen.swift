@@ -10,20 +10,16 @@ import SwiftUI
 struct HomeScreen: View {
 	@State var tabViews: [TabViewerType] = []
 	@State var categories: [String] = []
-	var storeData: StoreData
-	
-	init() {
-		self.storeData = StoreData()
-	}
+	@ObservedObject var storeData: StoreData = StoreData()
 	
 	var body: some View {
 		VStack {
 			TopBar()
-			TabViewer().environmentObject(self.storeData)
+			TabSelectionView(categories: self.storeData.categories, items: self.storeData.items)
 			Spacer()
 		}
 		.onAppear {
-			storeData.setData()
+			self.storeData.setData()
 		}
 	}
 }
