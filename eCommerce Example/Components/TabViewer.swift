@@ -18,20 +18,28 @@ class TabViewerType {
 
 struct TabViewer: View {
 	@State var selected: Int = 0
-	@EnvironmentObject var storeData: StoreData
+	@State var category: String = "coats"
+	var categories: [String]
+	var items: [String: Array<[String: Any]>]
+	
+	init(categories: [String], items: [String: Array<[String: Any]>]) {
+		self.categories = categories
+		self.items = items
+	}
 	
 	func fontColor(_ value: String) -> Color {
-		let categories = self.storeData.categories
+		let categories = self.categories
 		return categories[self.selected] == value ? Color.black : Color.gray
 	}
 	
 	func selectedBackground(_ value: String) -> Color {
-		let categories = self.storeData.categories
+		let categories = self.categories
 		return categories[self.selected] == value ? Color("accent") : Color.white
 	}
 	
 	func onClick(_ value: Int) -> Void {
 		self.selected = value
+		self.category = self.categories[value]
 	}
 	
 	var body: some View {
@@ -39,7 +47,7 @@ struct TabViewer: View {
 			ScrollView(.horizontal, showsIndicators: false) {
 				HStack {
 					Spacer()
-					ForEach(Array(self.storeData.categories.enumerated()), id: \.offset) { (index, el) in
+					ForEach(Array(self.categories.enumerated()), id: \.offset) { (index, el) in
 						Button(action: { onClick(index) }) {
 							Text(el.capitalized)
 								.padding(.horizontal, 20)
@@ -55,7 +63,12 @@ struct TabViewer: View {
 				}
 			}
 			VStack {
-//				views[selected].view
+				if ((self.items[self.category]?.isEmpty) != nil) {
+					ForEach(Array((self.items[self.category]?.enumerated())!), id: \.offset) { (index, item) in
+						Text(item["name"] as! String)
+					}
+				}
+				
 			}
 			Spacer()
 		}
@@ -80,9 +93,17 @@ struct TabViewer_Previews: PreviewProvider {
 	static var arr: [TabViewerType] = []
 	static var example1 = TabViewerType(label: "Example1", view: AnyView(ExampleView1()))
 	static var example2 = TabViewerType(label: "Example2", view: AnyView(ExampleView2()))
+	static var obj = [
+		"coats": [
+			[
+				"name": "hello",
+				"price": "$10.00"
+			],
+		]
+	]
 	
 	static var previews: some View {
-		TabViewer().environmentObject(StoreData())
+		TabViewer(categories: options, items: self.obj)
 	}
 }
 #endif

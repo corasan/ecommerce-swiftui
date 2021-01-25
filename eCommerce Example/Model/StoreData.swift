@@ -10,6 +10,7 @@ import SwiftUI
 class StoreData: ObservableObject {
 	@Published var data = [String: Any]()
 	@Published var categories = [String]()
+	@Published var items = [String: Array<[String: Any]>]()
 	
 	func setData() {
 		let url = Bundle.main.url(forResource: "data", withExtension: "json")!
@@ -19,6 +20,7 @@ class StoreData: ObservableObject {
 			let data = json["data"] as! [String: Any]
 			self.data = data
 			self.categories = data["categories"] as! [String]
+			self.items = data["items"] as! [String: Array<[String: Any]>]
 		} catch {
 			print(error)
 		}
