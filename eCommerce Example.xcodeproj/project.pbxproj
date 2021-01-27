@@ -98,11 +98,10 @@
 		BADE5A7B25BA7D3D00C8114E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				BAF1A21D25C1CADE00B3FCEF /* StoreItem */,
 				BADE5AB325BF7F4400C8114E /* TabSelectionView */,
 				BADE5A7C25BA7DB500C8114E /* TopBar.swift */,
-				BADE5AAE25BF318D00C8114E /* StoreItem.swift */,
 				BA4F153625C0F65D00A47754 /* FeaturedList.swift */,
-				BAF1A21225C1048500B3FCEF /* StoreItemModal.swift */,
 				BAF1A21A25C1C05300B3FCEF /* RoundedButton.swift */,
 			);
 			path = Components;
@@ -131,6 +130,15 @@
 				BAFF2CA725BF81E70048F06C /* TabItems.swift */,
 			);
 			path = TabSelectionView;
+			sourceTree = "<group>";
+		};
+		BAF1A21D25C1CADE00B3FCEF /* StoreItem */ = {
+			isa = PBXGroup;
+			children = (
+				BADE5AAE25BF318D00C8114E /* StoreItem.swift */,
+				BAF1A21225C1048500B3FCEF /* StoreItemModal.swift */,
+			);
+			path = StoreItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
