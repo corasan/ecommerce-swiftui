@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BA4F153725C0F65D00A47754 /* FeaturedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4F153625C0F65D00A47754 /* FeaturedList.swift */; };
+		BA6ACF5525C1D56900561DCE /* CartScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6ACF5425C1D56900561DCE /* CartScreen.swift */; };
 		BADE5A6C25BA4C6200C8114E /* eCommerce_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE5A6B25BA4C6200C8114E /* eCommerce_ExampleApp.swift */; };
 		BADE5A6E25BA4C6200C8114E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BADE5A6D25BA4C6200C8114E /* ContentView.swift */; };
 		BADE5A7025BA4C6300C8114E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BADE5A6F25BA4C6300C8114E /* Assets.xcassets */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		BA4F153625C0F65D00A47754 /* FeaturedList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedList.swift; sourceTree = "<group>"; };
+		BA6ACF5425C1D56900561DCE /* CartScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartScreen.swift; sourceTree = "<group>"; };
 		BADE5A6825BA4C6200C8114E /* eCommerce Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eCommerce Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BADE5A6B25BA4C6200C8114E /* eCommerce_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eCommerce_ExampleApp.swift; sourceTree = "<group>"; };
 		BADE5A6D25BA4C6200C8114E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				BADE5A8B25BC812300C8114E /* HomeScreen.swift */,
+				BA6ACF5425C1D56900561DCE /* CartScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				BAF1A21B25C1C05300B3FCEF /* RoundedButton.swift in Sources */,
 				BADE5A8C25BC812300C8114E /* HomeScreen.swift in Sources */,
 				BA4F153725C0F65D00A47754 /* FeaturedList.swift in Sources */,
+				BA6ACF5525C1D56900561DCE /* CartScreen.swift in Sources */,
 				BADE5A7D25BA7DB500C8114E /* TopBar.swift in Sources */,
 				BADE5A6C25BA4C6200C8114E /* eCommerce_ExampleApp.swift in Sources */,
 			);

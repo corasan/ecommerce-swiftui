@@ -29,6 +29,11 @@ class StoreData: ObservableObject {
 		self.cartCount = String(self.cart.count)
 	}
 	
+	func getTotal() -> String {
+		let result = self.cart.reduce(0.0) { $0 + Double($1.price)! }
+		return String(format: "%.2f", result)
+	}
+	
 	func setData() {
 		let url = Bundle.main.url(forResource: "data", withExtension: "json")!
 		do {

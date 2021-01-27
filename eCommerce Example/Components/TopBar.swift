@@ -9,6 +9,11 @@ import SwiftUI
 
 struct TopBar: View {
 	@EnvironmentObject var storeData: StoreData
+	@State var openCart = false
+	
+	func openCartScreen() {
+		self.openCart.toggle()
+	}
 
     var body: some View {
         VStack {
@@ -16,20 +21,27 @@ struct TopBar: View {
                 Circle()
                     .frame(width: 42, height: 42)
                 Spacer()
-				HStack {
-					Text(.init(systemName: "cart.fill"))
-						.font(.title)
+				Button(action: openCartScreen) {
 					HStack {
-						Text(storeData.cartCount)
-							.font(.system(size: 13))
+						Text(.init(systemName: "cart.fill"))
+							.font(.title)
+							.foregroundColor(.black)
+						HStack {
+							Text(storeData.cartCount)
+								.font(.system(size: 13))
+								.foregroundColor(.black)
+						}
+						.padding(.horizontal, 8)
+						.padding(.vertical, 4)
+						.background(Color("accent"))
+						.cornerRadius(25)
+						.padding(.leading, -20)
+						.padding(.bottom, 25)
 					}
-					.padding(.horizontal, 8)
-					.padding(.vertical, 4)
-					.background(Color("accent"))
-					.cornerRadius(25)
-					.padding(.leading, -20)
-					.padding(.bottom, 25)
 				}
+				.sheet(isPresented: $openCart, content: {
+					CartScreen()
+				})
             }
             .padding(.horizontal, 24)
         }

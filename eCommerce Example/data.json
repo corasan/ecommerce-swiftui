@@ -5,7 +5,7 @@
 			"coats": [
 				{
 					"name": "Wool Blend Oversized Coat",
-					"price": "$219.00",
+					"price": "219.00",
 					"description": "FULL FIT COAT MADE OF WOOL BLEND FABRIC. LAPEL COLLAR AND ADJUSTABLE LONG SLEEVES WITH BUTTONED STRAP.",
 					"sizes": ["XS", "S", "M", "L", "XL"],
 					"image": "oversizedCoat",
@@ -13,7 +13,7 @@
 				},
 				{
 					"name": "OVERSIZED WATER REPELLENT QUILTED COAT",
-					"price": "$119.00",
+					"price": "119.00",
 					"description": "QUILTED COAT WITH HIGH COLLAR AND ADJUSTABLE DRAWSTRING HOOD. LONG SLEEVES WITH COMBINATION TONAL.",
 					"sizes": ["XS", "S", "M", "L"],
 					"image": "waterRepellentQuiltedCoat",
@@ -23,7 +23,7 @@
 			"dresses": [
 				{
 					"name": "Dresses - Wool Blend Oversized Coat",
-					"price": "$219.00",
+					"price": "219.00",
 					"description": "FULL FIT COAT MADE OF WOOL BLEND FABRIC. LAPEL COLLAR AND ADJUSTABLE LONG SLEEVES WITH BUTTONED STRAP.",
 					"sizes": ["XS", "S", "M", "L", "XL"],
 					"image": "oversizedCoat",
@@ -33,7 +33,7 @@
 			"pants": [
 				{
 					"name": "Pants - Wool Blend Oversized Coat",
-					"price": "$219.00",
+					"price": "219.00",
 					"description": "FULL FIT COAT MADE OF WOOL BLEND FABRIC. LAPEL COLLAR AND ADJUSTABLE LONG SLEEVES WITH BUTTONED STRAP.",
 					"sizes": ["XS", "S", "M", "L", "XL"],
 					"image": "oversizedCoat",
@@ -43,7 +43,7 @@
 			"jeans": [
 				{
 					"name": "Jeans - Wool Blend Oversized Coat",
-					"price": "$219.00",
+					"price": "219.00",
 					"description": "FULL FIT COAT MADE OF WOOL BLEND FABRIC. LAPEL COLLAR AND ADJUSTABLE LONG SLEEVES WITH BUTTONED STRAP.",
 					"sizes": ["XS", "S", "M", "L", "XL"],
 					"image": "oversizedCoat",
