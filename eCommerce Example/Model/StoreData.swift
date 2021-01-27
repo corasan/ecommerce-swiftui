@@ -30,12 +30,10 @@ class StoreData: ObservableObject {
 			let json = JSON(data)
 			self.categories = json["categories"].arrayValue.map {$0.stringValue}
 			var obj = [String: [StoreItemType]]()
-			var arr = [StoreItemType]()
 			for (key, subJson) in json["data"]["items"] {
+				var arr = [StoreItemType]()
 				for (_, el) in subJson {
-					print(el)
-					let newElement = StoreItemType(name: el["name"].stringValue, price: el["price"].stringValue, image: el["image"].stringValue, sizes: el["name"].arrayValue.map {$0.stringValue})
-					arr.append(newElement)
+					arr.append(StoreItemType(name: el["name"].stringValue, price: el["price"].stringValue, image: el["image"].stringValue, sizes: el["sizes"].arrayValue.map {$0.stringValue}))
 					obj[key] = arr
 				}
 			}

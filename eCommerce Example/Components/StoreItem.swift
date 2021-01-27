@@ -25,27 +25,30 @@ struct StoreItem: View {
 				VStack {
 					Image(self.data.image).resizable()
 				}
-				.frame(width: 240, height: 340)
+				.frame(width: 220, height: 320)
 				.cornerRadius(16)
 				
 				HStack {
-					Text(self.data.name)
-						.fontWeight(.bold)
-						.font(.system(size: 18))
-						.foregroundColor(.black)
+					VStack(alignment: .leading) {
+						Text(self.data.name.capitalized)
+							.fontWeight(.bold)
+							.font(.system(size: 18))
+							.foregroundColor(.black)
+						Text(self.data.price)
+							.foregroundColor(.gray)
+							.fontWeight(.semibold)
+							.padding(.vertical, 2)
+					}
 					Spacer()
-					Text(self.data.price)
-						.foregroundColor(.gray)
-						.fontWeight(.semibold)
 				}
-				.padding(.top, 6)
-				.padding(.horizontal, 4)
+				.padding(.top, 5)
+				.padding(.horizontal, 12)
 			}
 			.frame(width: 240)
 			.padding(14)
 		}
 		.sheet(isPresented: $openItem, content: {
-			StoreItemModal(data: self.data)
+			StoreItemModal(data: self.data, onClose: setOpenItem)
 		})
 	}
 }
