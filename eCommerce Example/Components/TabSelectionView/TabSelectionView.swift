@@ -7,15 +7,6 @@
 
 import SwiftUI
 
-class TabViewerType {
-	var label: String
-	var view: AnyView
-	init(label: String, view: AnyView) {
-		self.label = label
-		self.view = view
-	}
-}
-
 struct TabSelectionView: View {
 	@State var selected: Int = 0
 	@State var category: String = "coats"
@@ -35,7 +26,7 @@ struct TabSelectionView: View {
 	var body: some View {
 		VStack {
 			TabItems(options: self.categories, selected: self.selected, onClick: self.onClick)
-			RenderTabView(tabChildren: self.items, category: self.category)
+			FeaturedList(data: self.items, category: self.category)
 			Spacer()
 		}
 	}
@@ -43,17 +34,6 @@ struct TabSelectionView: View {
 
 // This is only for preview purposes
 #if DEBUG
-struct ExampleView1: View {
-	var body: some View {
-		Text("Example view 1")
-	}
-}
-struct ExampleView2: View {
-	var body: some View {
-		Text("Example view 2")
-	}
-}
-
 struct TabSelectionView_Previews: PreviewProvider {
 	static var options = ["coats", "jeans"]
 	static var obj = [
