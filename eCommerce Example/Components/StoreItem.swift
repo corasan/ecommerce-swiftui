@@ -7,13 +7,6 @@
 
 import SwiftUI
 
-struct StoreItemType {
-	var name: String
-	var price: String
-	var image: String
-	var sizes: [String]
-}
-
 struct StoreItem: View {
 	var data: StoreItemType
 	@State var openItem = false
@@ -52,7 +45,7 @@ struct StoreItem: View {
 			.padding(14)
 		}
 		.sheet(isPresented: $openItem, content: {
-//			StoreItemModal(["name": self.name as! String, "price"])
+			StoreItemModal(data: self.data)
 		})
 	}
 }

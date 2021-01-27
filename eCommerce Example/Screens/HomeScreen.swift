@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct HomeScreen: View {
-	@State var categories: [String] = []
 	@ObservedObject var storeData: StoreData = StoreData()
 	
 	var body: some View {
