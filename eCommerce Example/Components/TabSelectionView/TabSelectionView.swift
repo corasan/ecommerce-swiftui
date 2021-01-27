@@ -11,9 +11,9 @@ struct TabSelectionView: View {
 	@State var selected: Int = 0
 	@State var category: String = "coats"
 	var categories: [String]
-	var items: [String: Array<[String: Any]>]
+	var items: [String: [StoreItemType]]
 	
-	init(categories: [String], items: [String: Array<[String: Any]>]) {
+	init(categories: [String], items: [String: [StoreItemType]]) {
 		self.categories = categories
 		self.items = items
 	}
@@ -36,13 +36,10 @@ struct TabSelectionView: View {
 #if DEBUG
 struct TabSelectionView_Previews: PreviewProvider {
 	static var options = ["coats", "jeans"]
+	static var item1 = StoreItemType(name: "Oversized Coat", price: "$200.00", image: "oversizedCoat", sizes: ["XS", "S", "M", "L", "XL"])
+	static var item2 = StoreItemType(name: "Oversized Coat", price: "$200.00", image: "oversizedCoat", sizes: ["XS", "S", "M", "L", "XL"])
 	static var obj = [
-		"coats": [
-			[
-				"name": "hello",
-				"price": "$10.00"
-			],
-		]
+		"coats": [item1, item2]
 	]
 	
 	static var previews: some View {

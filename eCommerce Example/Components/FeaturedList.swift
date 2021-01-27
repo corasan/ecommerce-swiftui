@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct FeaturedList: View {
-	var data: [String: Array<[String: Any]>]
+	var data: [String: [StoreItemType]]
 	var category: String
 	
-	init(data: [String: Array<[String: Any]>], category: String) {
+	init(data: [String: [StoreItemType]], category: String) {
 		self.data = data
 		self.category = category
 	}
@@ -21,7 +21,8 @@ struct FeaturedList: View {
 			HStack {
 				Text("Featured")
 					.font(.title)
-					.fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+					.fontWeight(.bold)
+					.foregroundColor(.black)
 				Spacer()
 			}
 			.padding(.horizontal, 20)
@@ -30,7 +31,7 @@ struct FeaturedList: View {
 				HStack {
 					if ((self.data[self.category]?.isEmpty) != nil) {
 						ForEach(Array((self.data[self.category]?.enumerated())!), id: \.offset) { (index, item) in
-							StoreItem(name: item["name"] as! String, price: item["price"] as! String, image: item["image"] as! String)
+							StoreItem(data: item)
 						}
 					}
 				}
@@ -40,19 +41,10 @@ struct FeaturedList: View {
 }
 
 struct FeaturedList_Previews: PreviewProvider {
+	static var item1 = StoreItemType(name: "Oversized Coat", price: "$200.00", image: "oversizedCoat", sizes: ["XS", "S", "M", "L", "XL"])
+	static var item2 = StoreItemType(name: "Oversized Coat", price: "$200.00", image: "oversizedCoat", sizes: ["XS", "S", "M", "L", "XL"])
 	static var obj = [
-		"coats": [
-			[
-				"name": "hello",
-				"price": "$10.00",
-				"image": "oversizedCoat"
-			],
-			[
-				"name": "hello",
-				"price": "$10.00",
-				"image": "oversizedCoat"
-			],
-		]
+		"coats": [item1, item2]
 	]
 	static var previews: some View {
 		FeaturedList(data: obj, category: "coats")
