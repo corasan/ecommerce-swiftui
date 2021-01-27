@@ -8,15 +8,28 @@
 import SwiftUI
 
 struct TopBar: View {
-    @State private var selected = 0
+	@EnvironmentObject var storeData: StoreData
+
     var body: some View {
         VStack {
             HStack {
                 Circle()
                     .frame(width: 42, height: 42)
                 Spacer()
-                Text(.init(systemName: "cart.fill"))
-                    .font(.title)
+				HStack {
+					Text(.init(systemName: "cart.fill"))
+						.font(.title)
+					HStack {
+						Text(storeData.cartCount)
+							.font(.system(size: 13))
+					}
+					.padding(.horizontal, 8)
+					.padding(.vertical, 4)
+					.background(Color("accent"))
+					.cornerRadius(25)
+					.padding(.leading, -20)
+					.padding(.bottom, 25)
+				}
             }
             .padding(.horizontal, 24)
         }
@@ -26,7 +39,7 @@ struct TopBar: View {
 struct TopBar_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            TopBar()
+			TopBar().environmentObject(StoreData())
         }
     }
 }

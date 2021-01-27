@@ -12,8 +12,8 @@ struct HomeScreen: View {
 	
 	var body: some View {
 		VStack {
-			TopBar()
-			TabSelectionView(categories: self.storeData.categories, items: self.storeData.items)
+			TopBar().environmentObject(self.storeData)
+			TabSelectionView(categories: self.storeData.categories, items: self.storeData.items).environmentObject(self.storeData)
 			Spacer()
 		}
 		.onAppear {

@@ -11,6 +11,7 @@ struct StoreItemModal: View {
 	var data: StoreItemType
 	var onClose: () -> Void
 	@State var selectedSize = ""
+	@EnvironmentObject var storeData: StoreData
 	
 	init(data: StoreItemType, onClose: @escaping () -> Void) {
 		self.data = data
@@ -19,6 +20,10 @@ struct StoreItemModal: View {
 	
 	func onSizePress(_ value: String) -> Void {
 		self.selectedSize = value
+	}
+	
+	func addToCart() {
+		storeData.addToStore(newItem: self.data)
 	}
 	
     var body: some View {
@@ -36,7 +41,7 @@ struct StoreItemModal: View {
 			}
 			.padding(10)
 			Spacer()
-			ItemDetails(name: self.data.name, price: self.data.price, sizes: self.data.sizes)
+			ItemDetails(data: self.data, addToCart: self.addToCart)
 		}
 		.background(VStack {
 			Image(self.data.image)
@@ -53,7 +58,7 @@ struct StoreItemModal_Previews: PreviewProvider {
 		print("pressed")
 	}
     static var previews: some View {
-		StoreItemModal(data: data, onClose: onClose)
+		StoreItemModal(data: data, onClose: onClose).environmentObject(StoreData())
     }
 }
 
@@ -61,16 +66,14 @@ struct ItemDetails: View {
 	var name: String
 	var price: String
 	var sizes: [String]
+	var addToCart: () -> Void
 	@State var selectedSize = ""
 	
-	init(name: String, price: String, sizes: [String]) {
-		self.name = name
-		self.price = price
-		self.sizes = sizes
-	}
-	
-	func addToCart() {
-		print("pressed")
+	init(data: StoreItemType, addToCart: @escaping () -> Void) {
+		self.name = data.name
+		self.price = data.price
+		self.sizes = data.sizes
+		self.addToCart = addToCart
 	}
 	
 	func onSizePress(_ value: String) -> Void {

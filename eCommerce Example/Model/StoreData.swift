@@ -21,7 +21,13 @@ class StoreData: ObservableObject {
 	@Published var data = [String: Any]()
 	@Published var categories = [String]()
 	@Published var items = [String: [StoreItemType]]()
-	@Published var cart = [String]()
+	@Published var cart = [StoreItemType]()
+	@Published var cartCount = "0"
+	
+	func addToStore(newItem: StoreItemType) {
+		self.cart.append(newItem)
+		self.cartCount = String(self.cart.count)
+	}
 	
 	func setData() {
 		let url = Bundle.main.url(forResource: "data", withExtension: "json")!
